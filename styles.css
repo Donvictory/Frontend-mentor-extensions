@@ -1,0 +1,325 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  background: light, dark;
+}
+.dark-theme {
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(180deg, #040918 0%, #091540 100%);
+  color: white;
+  overflow-x: hidden;
+  padding-bottom: 3rem;
+   font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+.light-theme{
+   height: 100vh;
+  width: 100vw;
+  background:linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
+  color: white;
+  overflow-x: hidden;
+  padding-bottom: 3rem;
+   font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+
+    nav{
+      background-color: white;
+      .toggle-theme-btn{
+        background-color:hsl(217, 61%, 90%);
+      }
+      svg path:nth-child(2){
+        fill: #091540;
+      }
+    }
+
+    h3{
+      color: #091540;
+    }
+    .button-div{
+      .all-btn,.Active-btn, .Inactive-btn{
+      background-color: white;
+      color: #091540;
+      border: 1px solid red;
+
+      &:focus{
+        background-color: red;
+        color: white;
+      }
+    }
+    }
+
+    .grid-extension{
+       background-color:white;
+       color: #091540;
+
+        .inner-grid-extension{
+            span{
+              color: #091540;
+              line-height: 1;
+            }
+        }
+         .bottom-grid-extension{
+          .remove-btn,span{
+            color: #091540;
+          }
+          .remove-btn:focus{
+            background-color: #ccc;
+            border: 1px solid red;
+          }
+        }
+    }
+    .zero-extension{
+      color: #091540;
+    }
+}
+nav,
+section {
+  --max-width: 900px;
+  width: min(var(--max-width), 100%);
+  margin-inline: auto;
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5em;
+  background: hsl(226, 25%, 17%);
+  padding: 0.5em;
+  border-radius: 0.3em;
+  img {
+    height: 1.5em;
+    color: white;
+  }
+  .image{
+    height: 1.2em;
+    color: white;
+    vertical-align: middle;
+  }
+  svg{
+    height: 25px;
+    margin: 0;
+    width: 110px;
+  }
+}
+.toggle-theme-btn {
+  border: none;
+  background: hsl(227, 29%, 30%);
+  cursor: pointer;
+  padding: 0.3em;
+  border-radius: 7px;
+}
+.header {
+  margin-top: 2em;
+  display: flex;
+  margin-bottom: 1em;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1rem;
+  h3 {
+    margin-right: auto;
+  }
+  button {
+    margin: 0.3em;
+    color: rgb(5, 5, 38);
+    cursor: pointer;
+  }
+  .all-btn {
+    background:  hsl(226, 25%, 17%);
+    padding: 0.6em 1.3em;
+    border-radius: 20px;
+    border: 1px solid grey;
+    color: white;
+  }
+  .Active-btn {
+    background: hsl(226, 25%, 17%);
+    padding: 0.7em 1.2em;
+    border-radius: 60px;
+    border: 1px solid grey;
+    color: white;
+  }
+  .Inactive-btn {
+    background-color:hsl(226, 25%, 17%);
+    padding: 0.7em 1.4em;
+    border-radius: 60px;
+    border: 0.5px solid grey;
+    color: white;
+  }
+   .all-btn,.Active-btn, .Inactive-btn{
+      background-color: #091540;
+      color: white;
+      border: 1px solid grey;
+
+      &:focus{
+        background-color: red;
+        color: white;
+      }
+      &:hover{
+        color: #091540;
+        background-color: #c21d1d;
+      }
+    }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-radius: 0.5em;
+  gap: 0.3em;
+  width: 100%;
+}
+.grid-extension {
+  background-color:hsl(226, 25%, 17%);
+  padding: 0.5em;
+  border-radius: 0.5em;
+  box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  img {
+    height: 2.5em;
+  }
+  .inner-grid-extension {
+    display: grid;
+    grid-template-columns: 3em 1fr;
+
+    h3 {
+      font-size: 1rem;
+      margin: 0;
+    }
+    span {
+      padding-bottom: 1rem;
+      font-size: 0.6rem;
+      color: white;
+      line-height: 1;
+    }
+  }
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 30px;
+  height: 15px;
+  vertical-align: middle;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 11px;
+  width: 11px;
+  left: 4px;
+  bottom: 2.5px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+input:checked + .slider {
+  background-color: #c21d1d;
+}
+
+input:checked + .slider::before {
+  transform: translateX(12px);
+}
+.status {
+  margin-top: 12px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.bottom-grid-extension {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  align-items: center;
+}
+.remove-btn {
+  background-color: transparent;
+  padding: 0.4em 0.9em;
+  border-radius: 60px;
+  border: 1px solid grey;
+  cursor: pointer;
+  color: white;
+  font-size: 11px;
+  font-weight: bold;
+  &:hover{
+    background-color: red;
+    color: #091540;
+  }
+}
+@media (min-width: 650px) {
+  body {
+    padding: 2rem;
+  }
+}
+@media (max-width: 650px){
+   body {
+    padding: 1.5rem;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-radius: 0.5em;
+    gap: 0.3em;
+    padding: 0 1rem;
+    justify-content: center;
+  }
+}
+@media (max-width: 420px) {
+  .header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    h3 {
+      display: flex;
+      justify-content: center;
+      margin-inline: auto;
+      padding: 0.5em;
+    }
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: minmax(200px, 400px);
+    border-radius: 0.5em;
+    gap: 0.3em;
+    padding: 0;
+    justify-content: center;
+  }
+  .inner-grid-extension {
+    h3 {
+      font-size: 1rem;
+      margin: 0;
+    }
+    span {
+      padding-bottom: 1rem;
+      font-size: 0.9rem;
+      color: white;
+      line-height: 1;
+    }
+  }
+}
